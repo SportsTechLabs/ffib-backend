@@ -1,0 +1,16 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/ffib
+    username: ffib
+    password: ffib
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/ffib
+    user: ffib
+    password: ffib
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
