@@ -20,6 +20,7 @@ logging:
 
 info:
   app:
+    name: FFIB Backend
     version: 1.0.0
     description: Football Federation Information Backend API
 
