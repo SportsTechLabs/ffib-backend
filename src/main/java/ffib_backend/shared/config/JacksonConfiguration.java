@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class JacksonConfiguration {
 
-    @Bean
-    Jackson2ObjectMapperBuilderCustomizer jacksonCustomizer() {
-        return builder -> builder
-                .modules(new JavaTimeModule())
-                .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    }
-
+  @Bean
+  Jackson2ObjectMapperBuilderCustomizer jacksonCustomizer() {
+    return builder ->
+        builder
+            .modules(new JavaTimeModule())
+            .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+  }
 }

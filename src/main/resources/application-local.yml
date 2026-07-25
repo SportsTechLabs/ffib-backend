@@ -5,7 +5,7 @@ spring:
     password: ffib
 
   flyway:
-    enabled: true
+    enabled: false
     url: jdbc:postgresql://localhost:5432/ffib
     user: ffib
     password: ffib

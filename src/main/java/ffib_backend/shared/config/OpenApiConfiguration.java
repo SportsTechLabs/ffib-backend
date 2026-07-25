@@ -11,25 +11,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfiguration {
 
-    @Bean
-    public OpenAPI ffibOpenApi() {
+  @Bean
+  public OpenAPI ffibOpenApi() {
 
-        return new OpenAPI()
-
-                .info(new Info()
-                        .title("FFIB API")
-                        .description("Football Federation Information Backend API")
-                        .version("v1")
-                        .contact(new Contact()
-                                .name("SportsTech Labs")
-                                .email("engineering@sportstechlabs.com"))
-                        .license(new License()
-                                .name("Proprietary")))
-
-                .externalDocs(new ExternalDocumentation()
-                        .description("Project Documentation")
-                        .url("https://sportstechlabs.atlassian.net/wiki/spaces/FFIB"));
-
-    }
-
+    return new OpenAPI()
+        .info(
+            new Info()
+                .title("FFIB API")
+                .description("Football Federation Information Backend API")
+                .version("v1")
+                .contact(
+                    new Contact().name("SportsTech Labs").email("engineering@sportstechlabs.com"))
+                .license(new License().name("Proprietary")))
+        .externalDocs(
+            new ExternalDocumentation()
+                .description("Project Documentation")
+                .url("https://sportstechlabs.atlassian.net/wiki/spaces/FFIB"));
+  }
 }

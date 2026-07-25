@@ -7,22 +7,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(BusinessException.class)
-    public ProblemDetail handleBusinessException(
-            BusinessException exception
-    ) {
+  @ExceptionHandler(BusinessException.class)
+  public ProblemDetail handleBusinessException(BusinessException exception) {
 
-        return ProblemDetailFactory.fromBusinessException(exception);
+    return ProblemDetailFactory.fromBusinessException(exception);
+  }
 
-    }
+  @ExceptionHandler(Throwable.class)
+  public ProblemDetail handleUnexpectedException(Throwable exception) {
 
-    @ExceptionHandler(Throwable.class)
-    public ProblemDetail handleUnexpectedException(
-            Throwable exception
-    ) {
-
-        return ProblemDetailFactory.internalServerError();
-
-    }
-
+    return ProblemDetailFactory.internalServerError();
+  }
 }
