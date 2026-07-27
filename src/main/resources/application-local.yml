@@ -4,13 +4,12 @@ spring:
     username: ffib
     password: ffib
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ffib
-    username: ffib
-    password: ffib
-
   flyway:
-    enabled: false
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/ffib
+    user: ffib
+    password: ffib
+    locations: classpath:db/migration
 
   data:
     redis:
