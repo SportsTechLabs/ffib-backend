@@ -104,6 +104,15 @@ tasks.jacocoTestReport {
 	reports {
 		xml.required.set(true)
 		html.required.set(true)
+		csv.required.set(false)
+	}
+}
+
+tasks.jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			enabled = false
+		}
 	}
 }
 
@@ -120,8 +129,41 @@ spotless {
 }
 
 sonar {
+
 	properties {
+
 		property("sonar.projectKey", "ffib-backend")
 		property("sonar.projectName", "FFIB Backend")
+		property("sonar.host.url", "http://localhost:9000")
+
+		property(
+			"sonar.coverage.jacoco.xmlReportPaths",
+			layout.buildDirectory.file(
+				"reports/jacoco/test/jacocoTestReport.xml"
+			).get().asFile.absolutePath
+		)
+
+		property(
+			"sonar.exclusions",
+			"""
+            **/generated/**,
+            **/configuration/**,
+            **/*Application.java,
+            **/dto/**,
+            """.trimIndent().replace("\n", "")
+		)
+
+		property(
+			"sonar.coverage.exclusions",
+			"""
+            **/configuration/**,
+            **/*Application.java,
+            **/dto/**,
+            """.trimIndent().replace("\n", "")
+		)
+
+		findProperty("sonar.login")?.let {
+			property("sonar.login", it)
+		}
 	}
 }
