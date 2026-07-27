@@ -33,10 +33,12 @@ dependencies {
 
 	// Database
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-	implementation("org.flywaydb:flyway-database-postgresql")
-	implementation("org.springframework:spring-jdbc")
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 
-	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.flywaydb:flyway-database-postgresql")
+
+	implementation("org.postgresql:postgresql")
 	runtimeOnly("org.postgresql:r2dbc-postgresql")
 
 	// Redis
